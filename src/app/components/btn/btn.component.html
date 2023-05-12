@@ -1,0 +1,7 @@
+<button
+  [type]="typeBtn"
+  class="text-white w-full px-5 py-2 font-medium rounded text-sm"
+  [ngClass]="{'bg-green-700': type === 'success', 'bg-danger': type === 'danger', 'bg-yellow-400': type === 'warning'}"
+>
+  <ng-content></ng-content>
+</button>
