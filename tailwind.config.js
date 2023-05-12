@@ -12,6 +12,15 @@ module.exports = {
         success: '#37b24d',
         primary:'#1971c2',
         danger: '#e03131'
+      },
+      container: {
+        screens: {
+            sm: '640px',
+            md: '768px',
+            lg: '1024',
+            xl: '1024px',
+            '2xl': '1536px',
+        }
       }
     },
   },

@@ -10,6 +10,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 // Angular CDK
 import { OverlayModule } from '@angular/cdk/overlay';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
+
+// Other libraries
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -23,8 +27,12 @@ import { OverlayModule } from '@angular/cdk/overlay';
     BrowserModule,
     AppRoutingModule,
 
-    // CDK
+    // Angular CDK
     OverlayModule,
+    CdkAccordionModule,
+
+    // Other libraries
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
