@@ -11,9 +11,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 // Angular CDK
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 // Other libraries
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BoardComponent } from './pages/board/board.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     LoginComponent,
     BtnComponent,
     BoardsComponent,
-    NavbarComponent
+    NavbarComponent,
+    BoardComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +33,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     // Angular CDK
     OverlayModule,
     CdkAccordionModule,
+    DragDropModule,
 
     // Other libraries
     FontAwesomeModule,
