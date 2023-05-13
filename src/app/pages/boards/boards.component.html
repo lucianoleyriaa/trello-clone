@@ -56,6 +56,31 @@
                 </div>
             </cdk-accordion-item>
         </cdk-accordion>
+
+        <!-- Accordion encadenado -->
+        <!-- <cdk-accordion>
+            <cdk-accordion-item #accordionMenu="cdkAccordionItem" *ngFor="let item of menuItems">
+                <button class="w-full align-left" (click)="accordionMenu.toggle()">{{ item.label }}</button>
+                <div [style.display]="accordionMenu.expanded ? '' : 'none'">
+                    <ul>
+                        <li *ngFor="let subItem of item.items">
+                            <div *ngIf="subItem.items && !subItem.items.length">
+                                {{ subItem.label }}
+                            </div>
+                            <div *ngIf="subItem.items && subItem.items.length > 0">
+                                <cdk-accordion-item #accordionSubMenu="cdkAccordionItem" *ngFor="let subsubItem of subItem.items">
+                                    <button class="w-full align-left" (click)="accordionSubMenu.toggle()">{{ subItem.label }}</button>
+                                    <div [style.display]="accordionSubMenu.expanded ? '' : 'none'">
+                                        <p>{{ subsubItem.label }}</p>
+                                    </div>
+                                </cdk-accordion-item>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </cdk-accordion-item>
+        </cdk-accordion> -->
+
     </div>
 
     <div class="w-full">

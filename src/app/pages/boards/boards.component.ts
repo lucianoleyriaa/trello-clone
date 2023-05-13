@@ -18,6 +18,51 @@ export class BoardsComponent implements OnInit {
     faBorderAll = faBorderAll;
     faUsers = faUsers;
 
+    // menuItems = [
+    //     {
+    //         label: 'item1',
+    //         items: [
+    //             {
+    //                 label: 'item 1.1',
+    //                 items: [],
+    //             },
+    //             {
+    //                 label: 'item 1.2',
+    //                 items: [],
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         label: 'item2',
+    //         items: [
+    //             {
+    //                 label: 'item 2.1',
+    //                 items: [{
+    //                     label: 'item 2.1.1'
+    //                 }]
+    //             },
+    //         ]
+    //     },
+    //     {
+    //         label: 'item3',
+    //         items: [
+    //             {
+    //                 label: 'item 3.1',
+    //                 items: [],
+    //             },
+    //             {
+    //                 label: 'item 3.2',
+    //                 items: [],
+    //             },
+    //             {
+    //                 label: 'item 3.3',
+    //                 items: [],
+    //             }
+    //         ]
+    //     },
+
+    // ]
+
   constructor() { }
 
   ngOnInit(): void {
