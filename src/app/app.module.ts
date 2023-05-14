@@ -7,15 +7,17 @@ import { LoginComponent } from './pages/login/login.component';
 import { BtnComponent } from './components/btn/btn.component';
 import { BoardsComponent } from './pages/boards/boards.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { TaskDialogComponent } from './components/task-dialog/task-dialog.component';
+import { BoardComponent } from './pages/board/board.component';
 
 // Angular CDK
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DialogModule } from '@angular/cdk/dialog';
 
 // Other libraries
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { BoardComponent } from './pages/board/board.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { BoardComponent } from './pages/board/board.component';
     BtnComponent,
     BoardsComponent,
     NavbarComponent,
-    BoardComponent
+    BoardComponent,
+    TaskDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,7 @@ import { BoardComponent } from './pages/board/board.component';
     OverlayModule,
     CdkAccordionModule,
     DragDropModule,
+    DialogModule,
 
     // Other libraries
     FontAwesomeModule,

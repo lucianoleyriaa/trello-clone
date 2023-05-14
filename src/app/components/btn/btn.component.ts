@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BtnComponent implements OnInit {
 
   @Input() typeBtn: 'button' | 'reset' | 'submit' = 'button';
-  @Input() type: 'success' | 'danger' | 'warning' = 'success';
+  @Input() type: 'success' | 'danger' | 'warning' | 'info' = 'success';
 
   constructor() { }
 

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { Dialog } from '@angular/cdk/dialog';
+import { TaskDialogComponent } from 'src/app/components/task-dialog/task-dialog.component';
+import { Todo } from 'src/app/models/Todo';
 
 @Component({
   selector: 'app-board',
@@ -8,9 +11,23 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 })
 export class BoardComponent implements OnInit {
 
-    todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
-    doing = ['Get up', 'Brush teeth', 'Check e-mail', 'Walk dog'];
-    done = ['Take a shower', 'Take out the garbage', 'Do the laundry'];
+    todo: Todo[] = [
+        { id: '1', name: 'Get to work' },
+        { id: '2', name: 'Pick up groceries' },
+        { id: '3', name: 'Go home' },
+        { id: '4', name: 'Fall asleep' },
+    ];
+    doing: Todo[] = [
+        { id: '5', name: 'Get up' },
+        { id: '6', name: 'Brush teeth' },
+        { id: '7', name: 'Check e-mail' },
+        { id: '8', name: 'Walk dog' },
+    ];
+    done: Todo[] = [
+        { id: '9', name: 'Take a shower' },
+        { id: '10', name: 'Take out the garbage' },
+        { id: '11', name: 'Do the laundry' },
+    ];
 
     columns = [
         { name: 'To Do', items: this.todo },
@@ -18,18 +35,33 @@ export class BoardComponent implements OnInit {
         { name: 'Done', items: this.done },
     ];
 
-    constructor() { }
+    constructor(
+        private dialogService: Dialog,
+    ) { }
 
     ngOnInit(): void {
     }
 
-    drop(e: CdkDragDrop<string[]>) {
+    drop(e: CdkDragDrop<Todo[]>) {
         if (e.container === e.previousContainer) return moveItemInArray(e.container.data, e.previousIndex, e.currentIndex);
         transferArrayItem(e.previousContainer.data, e.container.data, e.previousIndex, e.currentIndex);
     }
 
     onAddColumn() {
         this.columns.push({ name: 'New Column', items: [] });
+    }
+
+    onOpenTask(todo: Todo) {
+        const dialogRef = this.dialogService.open(TaskDialogComponent, {
+            width: '650px',
+            autoFocus: false,
+            data: { todo }
+        });
+
+        // Recive data from closed modal
+        dialogRef.closed.subscribe(data => {
+            console.log(data);
+        });
     }
 
 }
