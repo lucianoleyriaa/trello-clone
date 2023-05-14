@@ -5,24 +5,11 @@
   </div>
 
   <div class="relative w-full sm:w-7/12 md:w-6/12 lg:w-4/12 m-auto">
-    <header class="pt-6 pb-2 flex justify-center">
-      <img src="/assets/images/logo/logo-gradient-blue-trello.png" class="w-56" alt="Trello logo">
-    </header>
+    <app-header></app-header>
 
     <div class="bg-white rounded shadow py-4 px-6">
       <div class="mb-4">
-        <h1 class="text-center font-semibold pt-4 pb-8">Login in Trello</h1>
-          <form novalidate class="space-y-4">
-            <div class="relative">
-              <input type="text" placeholder="Enter your password" class="w-full rounded bg-gray-100 border-2 border-gray-300">
-            </div>
-            <div class="relative">
-              <input type="password" placeholder="Enter your password" class="w-full rounded bg-gray-100 border-2 border-gray-300">
-            </div>
-            <div>
-              <app-btn typeBtn="submit" type="success">Log In</app-btn>
-            </div>
-          </form>
+        <app-login-form></app-login-form>
       </div>
     </div>
   </div>

@@ -1,7 +1,14 @@
 <button
   [type]="typeBtn"
+  [disabled]="disabled || loading"
   class="text-white w-full px-5 py-2 font-medium rounded text-sm text-left"
   [ngClass]="{'bg-green-700': type === 'success', 'bg-danger': type === 'danger', 'bg-yellow-400': type === 'warning', 'bg-gray-300': type === 'info', 'text-black': type === 'info' }"
 >
+    <fa-icon
+        *ngIf="loading"
+        class="mr-2"
+        [icon]="faSpinner"
+        [pulse]="true">
+    </fa-icon>
   <ng-content></ng-content>
 </button>
