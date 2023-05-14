@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Dialog } from '@angular/cdk/dialog';
-import { TaskDialogComponent } from 'src/app/components/task-dialog/task-dialog.component';
+import { TaskDialogComponent } from 'src/app/modules/boards/components/task-dialog/task-dialog.component';
 import { Todo } from 'src/app/models/Todo';
 
 @Component({
@@ -60,7 +60,7 @@ export class BoardComponent implements OnInit {
 
         // Recive data from closed modal
         dialogRef.closed.subscribe(data => {
-            console.log(data);
+            // console.log(data);
         });
     }
 
