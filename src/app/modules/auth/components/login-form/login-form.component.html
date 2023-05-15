@@ -50,6 +50,11 @@
         </div>
   </div>
     <div>
+        <p *ngIf="status === 'failed'" class="font-medium text-red-500 text-xs mt-1 ml-1">
+            Credential are ivalalid!
+        </p>
+    </div>
+    <div>
         <app-btn
             typeBtn="submit"
             color="success"
