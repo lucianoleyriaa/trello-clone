@@ -12,6 +12,10 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './register-form.component.html',
 })
 export class RegisterFormComponent {
+    checkUser = this.formBuilder.nonNullable.group({
+        email: ['', [Validators.required]]
+    });
+
     form = this.formBuilder.nonNullable.group({
     name: ['', [Validators.required]],
     email: ['', [Validators.email, Validators.required]],
@@ -25,6 +29,7 @@ export class RegisterFormComponent {
     faEyeSlash = faEyeSlash;
     showPassword = false;
     errorMessage: string = '';
+    showRegisterForm: boolean = false;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -51,6 +56,29 @@ export class RegisterFormComponent {
 
         } else {
             this.form.markAllAsTouched();
+        }
+    }
+
+    checkIfIsAvailable() {
+        if (this.checkUser.valid) {
+            this.status = 'loading';
+            const { email } = this.checkUser.getRawValue();
+
+            this.authService.isAvailable(email).subscribe(data => {
+                this.status = 'success';
+                if (!data.isAvailable) {
+                    this.router.navigate(['/login'], { queryParams: { email } });
+                } else {
+                    this.form.controls.email.setValue(email);
+                    this.showRegisterForm = true;
+                }
+            },
+            (error) => {
+                this.status = 'failed';
+            })
+            
+        } else {
+            this.checkUser.markAllAsTouched();
         }
     }
 }

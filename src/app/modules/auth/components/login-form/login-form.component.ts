@@ -1,6 +1,6 @@
 import { FormBuilder, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterStateSnapshot } from '@angular/router';
 
 import { faPen, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
@@ -28,7 +28,13 @@ export class LoginFormComponent {
         private formBuilder: FormBuilder,
         private router: Router,
         private authService: AuthService,
-    ) { }
+        private activatedRoute: ActivatedRoute
+    ) {
+        this.activatedRoute.queryParamMap.subscribe(params => {
+            const email = params.get('email');
+            if (email) this.form.controls.email.setValue(email);
+        });
+    }
 
     doLogin() {
         if (this.form.valid) {
