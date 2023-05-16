@@ -38,7 +38,7 @@
                 This field is mandatory
             </p>
             <p *ngIf="form.controls.password.hasError('minlength')" class="font-medium text-red-500 text-xs mt-1 ml-1">
-                This field should be greater than 6 characters
+                This field should be greater than 8 characters
             </p>
         </div>
     </div>
@@ -64,6 +64,11 @@
     <div *ngIf="form.controls.confirmPassword.touched">
         <p *ngIf="form.hasError('mismatch')" class="font-medium text-red-500 text-xs mt-1 ml-1">
             The password are not the same
+        </p>
+    </div>
+    <div *ngIf="errorMessage">
+        <p class="font-medium text-red-500 text-xs mt-1 ml-1">
+            {{ errorMessage }}
         </p>
     </div>
     <div>
