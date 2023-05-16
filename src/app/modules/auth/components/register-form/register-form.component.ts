@@ -13,7 +13,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterFormComponent {
     checkUser = this.formBuilder.nonNullable.group({
-        email: ['', [Validators.required]]
+        email: ['', [Validators.email, Validators.required]]
     });
 
     form = this.formBuilder.nonNullable.group({
@@ -45,7 +45,7 @@ export class RegisterFormComponent {
 
             this.authService.signup(name, email, password).subscribe(() => {
                 this.status = 'success';
-                this.router.navigate(['/login']);
+                this.router.navigate(['/app/boards']);
             },
             (error) => {
                 this.status = 'failed';
@@ -76,7 +76,7 @@ export class RegisterFormComponent {
             (error) => {
                 this.status = 'failed';
             })
-            
+
         } else {
             this.checkUser.markAllAsTouched();
         }
