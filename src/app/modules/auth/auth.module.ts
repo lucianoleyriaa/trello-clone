@@ -12,6 +12,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { BackgroundComponent } from './components/background/background.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { RecoveryFormComponent } from './components/recovery-form/recovery-form.component';
+import { ForgotPasswordFormComponent } from './components/forgot-password-form/forgot-password-form.component';
+import { RecoveryComponent } from './pages/recovery/recovery.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +26,10 @@ import { RegisterFormComponent } from './components/register-form/register-form.
     FooterComponent,
     BackgroundComponent,
     RegisterFormComponent,
+    RecoveryFormComponent,
+    ForgotPasswordFormComponent,
+    RecoveryComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     CommonModule,
