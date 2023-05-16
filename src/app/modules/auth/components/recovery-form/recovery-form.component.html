@@ -44,6 +44,11 @@
             The password are not the same
         </p>
     </div>
+    <div *ngIf="error">
+        <p class="font-medium text-red-500 text-xs mt-1 ml-1">
+            We could not change the password!
+        </p>
+    </div>
     <div>
         <app-btn typeBtn="submit" color="success" [loading]="status === 'loading'">Recovery</app-btn>
     </div>

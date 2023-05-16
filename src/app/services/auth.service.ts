@@ -38,7 +38,7 @@ export class AuthService {
         return this.http.post(`${this.apiURL}/api/v1/auth/recovery`, { email });
     }
 
-    changePassword(token: string, password: string) {
-        return this.http.post(`${this.apiURL}/api/v1/auth/change-password`, { token, password });
+    changePassword(token: string, newPassword: string) {
+        return this.http.post(`${this.apiURL}/api/v1/auth/change-password`, { token, newPassword });
     }
 }
