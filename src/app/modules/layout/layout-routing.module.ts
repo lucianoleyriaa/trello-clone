@@ -10,6 +10,7 @@ const routes: Route[] = [
         children: [
             { path: '', redirectTo: 'boards', pathMatch: 'full' },
             { path: 'boards', loadChildren: () => import('./../boards/boards.module').then(m => m.BoardsModule) },
+            { path: 'users', loadChildren: () => import('./../users/users.module').then(m => m.UsersModule) },
         ],
     }
 ]
