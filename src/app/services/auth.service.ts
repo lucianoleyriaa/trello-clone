@@ -27,6 +27,7 @@ export class AuthService {
             .pipe(
                 tap(data => {
                     this.tokenService.saveToken(data.access_token);
+                    this.tokenService.saveRefreshToken(data.refresh_token);
                 })
             );
     }
@@ -54,8 +55,19 @@ export class AuthService {
         return this.http.post(`${this.apiURL}/api/v1/auth/change-password`, { token, newPassword });
     }
 
+    refreshToken(refreshToken: string) {
+        return this.http.post<ResponseLogin>(`${this.apiURL}/api/v1/auth/refresh-token`, { refreshToken })
+            .pipe(
+                tap((response) => {
+                    this.tokenService.saveToken(response.access_token);
+                    this.tokenService.saveRefreshToken(response.refresh_token);
+                })
+            )
+    }
+
     logout() {
         this.tokenService.removeToken();
+        this.tokenService.removeRefreshToken();
     }
 
     getProfile() {
