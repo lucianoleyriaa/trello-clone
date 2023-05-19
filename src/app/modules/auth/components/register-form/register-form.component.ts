@@ -43,7 +43,7 @@ export class RegisterFormComponent {
             this.errorMessage = '';
             const { name, email, password } = this.form.getRawValue();
 
-            this.authService.signup(name, email, password).subscribe(() => {
+            this.authService.singnupAndLogin(name, email, password).subscribe(() => {
                 this.status = 'success';
                 this.router.navigate(['/app/boards']);
             },
