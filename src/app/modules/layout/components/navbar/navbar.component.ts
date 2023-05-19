@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faBell, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { User } from 'src/app/models/User.model';
 
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -14,6 +15,7 @@ export class NavbarComponent implements OnInit {
     faBell = faBell;
     faInfoCircle = faInfoCircle;
     isOpen = false;
+    user!: User | null;
 
     constructor(
         private authService: AuthService,
@@ -21,7 +23,9 @@ export class NavbarComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-
+        this.authService.user$.subscribe(user => {
+            this.user = user;
+        });
     }
 
     logout() {

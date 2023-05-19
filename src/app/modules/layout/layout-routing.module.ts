@@ -11,6 +11,7 @@ const routes: Route[] = [
             { path: '', redirectTo: 'boards', pathMatch: 'full' },
             { path: 'boards', loadChildren: () => import('./../boards/boards.module').then(m => m.BoardsModule) },
             { path: 'users', loadChildren: () => import('./../users/users.module').then(m => m.UsersModule) },
+            { path: 'profile', loadChildren: () => import('./../profile/profile.module').then(m => m.ProfileModule) },
         ],
     }
 ]
